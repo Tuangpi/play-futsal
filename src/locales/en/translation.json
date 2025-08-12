@@ -1,0 +1,11 @@
+{
+    "signup": {
+        "title": "Create Account",
+        "email": "Email or Phone",
+        "password": "Password",
+        "role": "I'm a:",
+        "register": "Register",
+        "already_account": "Already have an account?",
+        "login": "Login"
+    }
+}
