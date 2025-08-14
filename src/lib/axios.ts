@@ -17,16 +17,23 @@ api.interceptors.request.use(config => {
 api.interceptors.response.use(
     res => res,
     async error => {
-        if (error.response?.status === 401 && !error.config._retry) {
-            error.config._retry = true; // Prevent infinite loop
+        const originalRequest = error.config;
+        if (error.response?.status === 401 && !originalRequest._retry && originalRequest.url !== '/refresh-token'
+        ) {
+            error.config._retry = true;
+
             try {
                 const res = await api.get('/refresh-token');
                 const newToken = res.data.accessToken;
                 setToken(newToken);
-                error.config.headers.Authorization = `Bearer ${newToken}`;
-                return api(error.config);
-            } catch {
-                // Optional: redirect to login or show modal
+
+                if (originalRequest?.headers) {
+                    originalRequest.headers.Authorization = `Bearer ${newToken}`;
+                }
+
+                return api(originalRequest);
+            } catch (err) {
+                return Promise.reject(err);
             }
         }
         return Promise.reject(error);

@@ -11,6 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { USER_ROLE } from "@/constants/Users";
 import { toast } from "react-toastify";
 import { handleApiError, type apiResponse } from "@/types/apiResponse";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
 
 type FormData = z.infer<typeof registerUserSchema>;
 
@@ -68,40 +70,27 @@ const SignUp = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-950 text-white px-4 py-8">
-      <div className="w-full max-w-md bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-800">
+    <div className="min-h-screen flex items-center justify-center bg-bg-muted text-text px-4 py-8">
+      <div className="w-full max-w-md bg-bg p-8 rounded-2xl shadow-xl border border-primary">
         <h2 className="text-3xl font-bold mb-6 text-center">
           {t("signup.title")}
         </h2>
 
-        {/* Social Buttons */}
-        <div className="space-y-3 mb-6">
-          <button className="w-full bg-blue-600 hover:bg-blue-700 transition duration-200 py-2 rounded-lg shadow">
-            Sign up with Facebook
-          </button>
-          <button className="w-full bg-red-600 hover:bg-red-700 transition duration-200 py-2 rounded-lg shadow">
-            Sign up with Google
-          </button>
-        </div>
-
-        <div className="text-center text-gray-500 mb-6">or continue with</div>
-
-        {/* Email/Password */}
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-          <input
+          <Input
             {...register("email")}
             type="text"
             placeholder={t("signup.email")}
-            className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="mb-3"
           />
           {errors.email && (
             <p className="text-red-500">{errors.email.message}</p>
           )}
-          <input
+          <Input
             {...register("password")}
             type="password"
             placeholder={t("signup.password")}
-            className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="mb-3"
           />
           {errors.password && (
             <p className="text-red-500">{errors.password?.message}</p>
@@ -133,17 +122,17 @@ const SignUp = () => {
           {errors.role && <p className="text-red-500">{errors.role.message}</p>}
           <input type="hidden" {...register("role")} />
 
-          <button
+          <Button
             type="submit"
             disabled={mutation.isPending}
-            className={`w-full bg-green-600 hover:bg-green-700 transition py-3 rounded-lg font-semibold text-white shadow-lg mt-2 cursor-pointer ${
+            className={`${
               mutation.isPending
                 ? "opacity-50 cursor-not-allowed bg-green-700"
                 : ""
             }`}
           >
             {t("signup.register")}
-          </button>
+          </Button>
         </form>
 
         <div className="mt-6 text-center text-sm text-gray-400">

@@ -16,26 +16,11 @@ export const playerRoutes: RouteObject[] = [
       </ProtectedRoute>
     ),
     children: [
-      {
-        index: true,
-        element: <Dashboard />,
-      },
-      {
-        path: "competitions",
-        element: <Competitions />,
-      },
-      {
-        path: "my-team",
-        element: <MyTeam />,
-      },
-      {
-        path: "my-stats",
-        element: <MyStats />,
-      },
-      {
-        path: "profile",
-        element: <Profile />,
-      },
+      { index: true, element: <Dashboard /> },
+      { path: "competitions", element: <Competitions /> },
+      { path: "my-team", element: <MyTeam /> },
+      { path: "my-stats", element: <MyStats /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ];

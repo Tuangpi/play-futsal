@@ -14,18 +14,9 @@ export const hostRoutes: RouteObject[] = [
       </ProtectedRoute>
     ),
     children: [
-      {
-        index: true,
-        element: <Dashboard />,
-      },
-      {
-        path: "competitions",
-        element: <Competitions />,
-      },
-      {
-        path: "profile",
-        element: <Profile />,
-      },
+      { index: true, element: <Dashboard /> },
+      { path: "competitions", element: <Competitions /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ];

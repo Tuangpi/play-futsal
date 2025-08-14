@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 import type { AuthUser } from "@/context/AuthContext";
 import { useAuth } from "@/hooks/useAuth";
 import api from "@/lib/axios";
@@ -29,7 +31,6 @@ const Login = () => {
       navigate(`/${decoded.role.toLowerCase()}`);
     },
     onError: (error: apiResponse) => {
-      console.log(error);
       handleApiError(error);
     },
   });
@@ -47,52 +48,34 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-4">
-      <div className="w-full max-w-md bg-gray-800 p-6 rounded-xl shadow-md">
+    <div className="min-h-screen flex items-center justify-center bg-bg-muted text-text p-4">
+      <div className="w-full max-w-md bg-bg p-6 rounded-xl shadow-md border-primary">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
 
-        {/* Social Login */}
-        <div className="mb-4">
-          <button className="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded mb-2">
-            Continue with Facebook
-          </button>
-          <button className="w-full bg-red-600 hover:bg-red-700 py-2 rounded">
-            Continue with Google
-          </button>
-        </div>
-
-        <div className="my-4 text-center text-gray-400">or</div>
-
-        {/* Email/Phone Login */}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
+          <Input
             {...register("email")}
             type="text"
             placeholder="Email or Phone"
-            className="w-full p-2 mb-3 rounded bg-gray-700 text-white"
+            className="mb-3"
           />
           {errors.email && (
             <p className="text-red-500">{errors.email.message}</p>
           )}
-          <input
+          <Input
             {...register("password")}
             type="password"
             placeholder="Password"
-            className="w-full p-2 mb-3 rounded bg-gray-700 text-white"
+            className="mb-3"
           />
           {errors.password && (
             <p className="text-red-500">{errors.password.message}</p>
           )}
 
-          <button
-            type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 py-2 rounded font-semibold"
-          >
-            Login
-          </button>
+          <Button type="submit">Login</Button>
         </form>
 
-        <div className="mt-4 text-center">
+        <div className="mt-4 text-center text-sm">
           Don't have an account?{" "}
           <Link to="/signup" className="text-blue-400 hover:underline">
             Sign Up
