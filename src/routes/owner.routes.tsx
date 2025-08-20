@@ -1,7 +1,7 @@
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import CourtOwnerLayout from "@/layouts/CourtOwnerLayout/CourtOwnerLayout";
 import RootLayout from "@/layouts/RootLayout";
-import Bookings from "@/pages/owner/Bookings";
+import Bookings from "@/pages/owner/Bookings/Bookings";
 import Dashboard from "@/pages/owner/Dashboard";
 import AddCourt from "@/pages/owner/Mycourts/AddCourt";
 import MyCourts from "@/pages/owner/Mycourts/MyCourts";
@@ -22,7 +22,7 @@ export const ownerRoutes: RouteObject[] = [
       { index: true, element: <Dashboard /> },
       { path: "my-courts", element: <MyCourts /> },
       { path: "my-courts/add", element: <AddCourt /> },
-      { path: "my-bookings", element: <Bookings /> },
+      { path: "bookings", element: <Bookings /> },
       { path: "profile", element: <Profile /> },
     ],
   },

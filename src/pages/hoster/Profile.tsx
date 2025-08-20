@@ -1,3 +1,5 @@
+import DarkModeToggle from "@/components/DarkModeToggle";
+import I18nChange from "@/components/I18nChange";
 import api from "@/lib/axios";
 import { handleApiError, type apiResponse } from "@/types/apiResponse";
 import { useMutation } from "@tanstack/react-query";
@@ -26,8 +28,13 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div className="bg-bg min-h-screen">
       <div>Profile</div>
+      <div className="flex gap-4 items-center">
+        <I18nChange />
+        <DarkModeToggle />
+      </div>
+
       <button
         className="p-3 m-5 rounded-md px-5 cursor-pointer bg-red-500"
         onClick={handleLogout}

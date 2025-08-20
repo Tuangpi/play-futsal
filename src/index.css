@@ -63,3 +63,29 @@
 .animate-fadeIn {
   animation: fadeIn 0.4s ease-in-out;
 }
+
+
+/* Width of vertical scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #F9FAFB;
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #B2B2B2;
+  border-radius: 50px;
+}
+
+/* Dark mode */
+.dark ::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #494949;
+}

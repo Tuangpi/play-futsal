@@ -2,7 +2,7 @@ export const ownerNavItems: { to: string, label: string, exactPath: boolean }[] 
     { to: "/owner", label: "Dashboard", exactPath: true },
     // { to: "/owner/competitions", label: "Competitions", exactPath: false },
     { to: "/owner/my-courts", label: "My Courts", exactPath: false },
-    { to: "/owner/my-bookings", label: "My Bookings", exactPath: false },
+    { to: "/owner/bookings", label: "Bookings", exactPath: false },
     { to: "/owner/profile", label: "Profile", exactPath: false },
 ];
 

@@ -1,0 +1,65 @@
+.rbc-event:hover {
+    filter: brightness(0.9);
+    cursor: pointer;
+}
+
+.rbc-toolbar {
+    background-color: #dd5018;
+    padding: 8px;
+    border-bottom: 1px solid #3212a7;
+}
+
+.rbc-toolbar button {
+  background-color: #2563eb;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 10px;
+  border: none;
+}
+
+.rbc-toolbar button:hover {
+  background-color: #1e40af;
+}
+
+.rbc-toolbar .rbc-active {
+  background-color: #da6d14;
+}
+
+.rbc-today {
+  background-color: #1b7fc2 !important;
+}
+
+.rbc-time-content {
+  border-top: 1px solid #e5e7eb;
+}
+
+ /* for dark mode */
+ .dark .rbc-toolbar{
+    background-color: #131212;
+    padding: 8px;
+    border-bottom: 1px solid #d63c21;
+}
+
+.dark .rbc-toolbar button {
+  background-color: #74eb25;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 10px;
+  border: none;
+}
+
+.dark .rbc-toolbar button:hover {
+  background-color: #babfce;
+}
+
+.dark .rbc-toolbar .rbc-active {
+  background-color: #da6d14;
+}
+
+.dark .rbc-today {
+  background-color: #1186d4 !important;
+}
+
+.dark .rbc-time-content {
+  border-top: 1px solid #c91066;
+}

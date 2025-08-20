@@ -1,3 +1,5 @@
+import DarkModeToggle from "@/components/DarkModeToggle";
+import I18nChange from "@/components/I18nChange";
 import Button from "@/components/ui/Button";
 import api from "@/lib/axios";
 import { handleApiError, type apiResponse } from "@/types/apiResponse";
@@ -27,8 +29,13 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-bg min-h-screen">
       <div>Profile</div>
+      <div className="flex gap-4 items-center">
+        <I18nChange />
+        <DarkModeToggle />
+      </div>
+
       <Button onClick={handleLogout}>
         {mutation.isPending ? "logout..." : "logout"}
       </Button>

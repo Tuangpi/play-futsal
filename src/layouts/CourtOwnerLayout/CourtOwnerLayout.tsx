@@ -6,7 +6,7 @@ const CourtOwnerLayout = () => {
     <>
       <header className="bg-bg-muted text-text-muted px-6 py-4 flex justify-between items-center shadow-md sticky top-0 left-0">
         <Link to="/owner" className="text-xl font-bold text-sky-500 block">
-          FutsalPro
+          Logo
         </Link>
         <nav className="space-x-6">
           {ownerNavItems.map(({ to, label, exactPath }) => (

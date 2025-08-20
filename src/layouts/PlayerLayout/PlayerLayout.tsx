@@ -3,19 +3,19 @@ import { Link, NavLink, Outlet } from "react-router";
 
 const PlayerLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-950 text-white">
-      <header className="bg-gray-900 px-6 py-4 flex justify-between items-center shadow-md">
-        <Link to="/player" className="text-xl font-bold text-sky-500">
-          FutsalPro
+    <>
+      <header className="bg-bg-muted text-text-muted px-6 py-4 flex justify-between items-center shadow-md sticky top-0 left-0">
+        <Link to="/player" className="text-xl font-bold text-sky-500 block">
+          Logo
         </Link>
         <nav className="space-x-6">
           {playerNavItems.map(({ to, label, exactPath }) => (
             <NavLink
               key={to}
-              to={to}
               end={exactPath}
+              to={to}
               className={({ isActive }) =>
-                `${isActive ? "text-red-400" : "text-blue-400"}`
+                `${isActive ? "text-primary" : "text-text-muted"}`
               }
             >
               {label}
@@ -23,15 +23,10 @@ const PlayerLayout = () => {
           ))}
         </nav>
       </header>
-
       <main className="flex-1 p-6">
         <Outlet />
       </main>
-
-      <footer className="bg-gray-900 text-center text-gray-400 py-4">
-        &copy; {new Date().getFullYear()} FutsalPro. All rights reserved.
-      </footer>
-    </div>
+    </>
   );
 };
 

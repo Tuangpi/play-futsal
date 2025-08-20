@@ -6,13 +6,16 @@ import type { RouteObject } from "react-router";
 import Competitions from "@/pages/player/Competitions";
 import MyTeam from "@/pages/player/MyTeam";
 import MyStats from "@/pages/player/MyStats";
+import RootLayout from "@/layouts/RootLayout";
 
 export const playerRoutes: RouteObject[] = [
   {
     path: "/player",
     element: (
       <ProtectedRoute allowedRole="PLAYER">
-        <PlayerLayout />
+        <RootLayout>
+          <PlayerLayout />
+        </RootLayout>
       </ProtectedRoute>
     ),
     children: [

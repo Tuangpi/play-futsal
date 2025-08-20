@@ -15,13 +15,11 @@ const getData = async () => {
   return response.data;
 };
 
-const MyCourts = () => {
+const Competitions = () => {
   const { data, isLoading, isError, error } = useQuery<{ data: Court[] }>({
     queryKey: ["get-courts"],
     queryFn: getData,
   });
-
-  console.log(data);
 
   const columns = useMemo<ColumnDef<Court>[]>(
     () => [
@@ -94,10 +92,10 @@ const MyCourts = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">My Courts</h1>
         <Link
-          to="/owner/my-courts/add"
+          to="/host/competitions/add"
           className="bg-sky-500 px-4 py-2 rounded hover:bg-sky-600"
         >
-          + Add Court
+          + Add Competition
         </Link>
       </div>
       <DataTable table={table} />
@@ -105,4 +103,4 @@ const MyCourts = () => {
   );
 };
 
-export default MyCourts;
+export default Competitions;
