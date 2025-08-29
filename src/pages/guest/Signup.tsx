@@ -83,9 +83,7 @@ const SignUp = () => {
             placeholder={t("signup.email")}
             className="mb-3"
           />
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="text-error">{errors.email.message}</p>}
           <Input
             {...register("password")}
             type="password"
@@ -93,7 +91,7 @@ const SignUp = () => {
             className="mb-3"
           />
           {errors.password && (
-            <p className="text-red-500">{errors.password?.message}</p>
+            <p className="text-error">{errors.password?.message}</p>
           )}
 
           <div>
@@ -119,7 +117,7 @@ const SignUp = () => {
               ))}
             </div>
           </div>
-          {errors.role && <p className="text-red-500">{errors.role.message}</p>}
+          {errors.role && <p className="text-error">{errors.role.message}</p>}
           <input type="hidden" {...register("role")} />
 
           <Button

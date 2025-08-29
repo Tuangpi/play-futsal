@@ -3,8 +3,8 @@ import type { Status } from "@/types/status";
 import { useQuery } from "@tanstack/react-query";
 import type { UseFormRegister } from "react-hook-form";
 
-const getCompetitionType = async () => {
-  const response = await api.get("/competition-type");
+const getCompetitionStatus = async () => {
+  const response = await api.get("/competition-status");
   return response.data;
 };
 
@@ -13,10 +13,10 @@ type Props = {
   name: string;
 };
 
-const CompetitionTypeDropDown = ({ register, name }: Props) => {
+const CompetitionStatusDropDown = ({ register, name }: Props) => {
   const { data, isLoading, isError } = useQuery<{ data: Status[] }>({
-    queryKey: ["competition-type"],
-    queryFn: getCompetitionType,
+    queryKey: ["competition-status"],
+    queryFn: getCompetitionStatus,
   });
 
   if (isLoading) {
@@ -37,7 +37,7 @@ const CompetitionTypeDropDown = ({ register, name }: Props) => {
 
   return (
     <select {...register(name)} className="border p-2 w-full bg-bg">
-      <option value="">Select competition type...</option>
+      <option value="">Select competition status...</option>
       {data?.data.map((status) => (
         <option key={status.id} value={status.id}>
           {status.name.charAt(0).toUpperCase() +
@@ -48,4 +48,4 @@ const CompetitionTypeDropDown = ({ register, name }: Props) => {
   );
 };
 
-export default CompetitionTypeDropDown;
+export default CompetitionStatusDropDown;

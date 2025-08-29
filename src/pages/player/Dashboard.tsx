@@ -1,4 +1,4 @@
 const Dashboard = () => {
-  return <div>Player Dashboard</div>;
+  return <div className="min-h-screen">Player Dashboard</div>;
 };
 export default Dashboard;

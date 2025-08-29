@@ -29,7 +29,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-bg min-h-screen">
       <div>Profile</div>
       <div className="flex gap-4 items-center">
         <I18nChange />

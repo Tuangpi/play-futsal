@@ -8,20 +8,22 @@ import { Link } from "react-router";
 import { DataTable } from "@/components/ui/DataTable";
 import api from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
-import type { Court } from "@/types/courts";
+import type { Competition } from "@/types/competitions";
 
 const getData = async () => {
-  const response = await api.get("/courts");
+  const response = await api.get("/competitions");
   return response.data;
 };
 
 const Competitions = () => {
-  const { data, isLoading, isError, error } = useQuery<{ data: Court[] }>({
-    queryKey: ["get-courts"],
-    queryFn: getData,
-  });
+  const { data, isLoading, isError, error } = useQuery<{ data: Competition[] }>(
+    {
+      queryKey: ["get-competitions"],
+      queryFn: getData,
+    }
+  );
 
-  const columns = useMemo<ColumnDef<Court>[]>(
+  const columns = useMemo<ColumnDef<Competition>[]>(
     () => [
       {
         header: "Name",

@@ -9,11 +9,12 @@ import api from "@/lib/axios";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import CompetitionTypeDropDown from "@/components/CompetitionTypeDropDown";
+import CompetitionStatusDropDown from "@/components/CompetitionStatusDropDown";
 
 type FormData = z.infer<typeof createCompetitionSchema>;
 
 const createCompetition = async (data: FormData) => {
-  const response = await api.post("/competition/add", data);
+  const response = await api.post("/competitions/add", data);
   return response.data;
 };
 
@@ -49,20 +50,28 @@ const Create = () => {
         <div>
           <label className="block">Name</label>
           <Input {...register("name")} placeholder="Competition Name" />
-          {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+          {errors.name && <p className="text-error">{errors.name.message}</p>}
         </div>
 
         <div>
           <label className="block">Type</label>
           <CompetitionTypeDropDown register={register} name="type" />
-          {errors.type && <p className="text-red-500">{errors.type.message}</p>}
+          {errors.type && <p className="text-error">{errors.type.message}</p>}
+        </div>
+
+        <div>
+          <label className="block">Status</label>
+          <CompetitionStatusDropDown register={register} name="status" />
+          {errors.status && (
+            <p className="text-error">{errors.status.message}</p>
+          )}
         </div>
 
         <div>
           <label className="block">Start Date</label>
           <Input type="date" {...register("startDate")} />
           {errors.startDate && (
-            <p className="text-red-500">{errors.startDate.message}</p>
+            <p className="text-error">{errors.startDate.message}</p>
           )}
         </div>
 
@@ -70,7 +79,7 @@ const Create = () => {
           <label className="block">End Date</label>
           <Input type="date" {...register("endDate")} />
           {errors.endDate && (
-            <p className="text-red-500">{errors.endDate.message}</p>
+            <p className="text-error">{errors.endDate.message}</p>
           )}
         </div>
 

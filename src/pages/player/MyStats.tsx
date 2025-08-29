@@ -1,4 +1,4 @@
 const MyStats = () => {
-  return <div>MyStats</div>;
+  return <div className="min-h-screen">MyStats</div>;
 };
 export default MyStats;

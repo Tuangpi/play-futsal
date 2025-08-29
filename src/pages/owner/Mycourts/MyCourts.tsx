@@ -21,8 +21,6 @@ const MyCourts = () => {
     queryFn: getData,
   });
 
-  console.log(data);
-
   const columns = useMemo<ColumnDef<Court>[]>(
     () => [
       {

@@ -59,9 +59,7 @@ const Login = () => {
             placeholder="Email or Phone"
             className="mb-3"
           />
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="text-error">{errors.email.message}</p>}
           <Input
             {...register("password")}
             type="password"
@@ -69,7 +67,7 @@ const Login = () => {
             className="mb-3"
           />
           {errors.password && (
-            <p className="text-red-500">{errors.password.message}</p>
+            <p className="text-error">{errors.password.message}</p>
           )}
 
           <Button type="submit">Login</Button>
